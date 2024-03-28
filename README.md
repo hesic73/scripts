@@ -10,7 +10,7 @@ Miscellaneous Python scripts I use for image processing, data handling and more.
 ## Dependencies
 
 ```
-pip install click
+pip install -r requirements.txt
 sudo apt install ffmpeg
 ```
 
