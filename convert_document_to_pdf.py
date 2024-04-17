@@ -2,13 +2,16 @@
 Adapted from: https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/convert-document/convert.py
 """
 
+import sys
 import os
 import click
 import fitz
 
+
 @click.command()
 @click.argument('input_file')
-@click.option('--output-dir', default='.', help='Directory to save the output PDF file. Defaults to the current working directory.')
+@click.option('--output-dir', default='.',
+              help='Directory to save the output PDF file. Defaults to the current working directory.')
 def convert(input_file, output_dir):
     try:
         doc = fitz.open(input_file)
@@ -25,8 +28,9 @@ def convert(input_file, output_dir):
         pdf = fitz.open("pdf", pdf_bytes)
 
         # Handle table of contents
-        toc = doc.get_toc()
-        pdf.set_toc(toc)
+        toc = fitz.utils.get_toc(doc)
+
+        fitz.utils.set_toc(pdf, toc)
 
         # Handle metadata
         meta = doc.metadata
@@ -34,7 +38,8 @@ def convert(input_file, output_dir):
             meta["producer"] = f"PyMuPDF v{fitz.VersionBind}"
         if not meta["creator"]:
             meta["creator"] = "PyMuPDF PDF converter"
-        pdf.set_metadata(meta)
+
+        fitz.utils.set_metadata(pdf, meta)
 
         # Process links
         link_count, link_skipped = process_links(doc, pdf)
@@ -45,10 +50,11 @@ def convert(input_file, output_dir):
         print(f"Error: {str(e)}")
         sys.exit(1)
 
+
 def process_links(doc, pdf):
     link_count = 0
     link_skipped = 0
-    for pinput in doc:
+    for pinput in doc.pages():
         links = pinput.get_links()
         link_count += len(links)
         pout = pdf[pinput.number]
@@ -58,6 +64,7 @@ def process_links(doc, pdf):
                 continue
             pout.insert_link(link)
     return link_count, link_skipped
+
 
 if __name__ == "__main__":
     convert()
