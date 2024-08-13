@@ -9,22 +9,6 @@ import subprocess
 
 from typing import Tuple, Optional
 
-headers = {
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-    "Accept-Encoding": "gzip, deflate, br, zstd",
-    "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
-    "Cache-Control": "max-age=0",
-    "Sec-Ch-Ua": "\"Chromium\";v=\"122\", \"Not(A:Brand\";v=\"24\", \"Google Chrome\";v=\"122\"",
-    "Sec-Ch-Ua-Mobile": "?0",
-    "Sec-Ch-Ua-Platform": "\"Linux\"",
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "none",
-    "Sec-Fetch-User": "?1",
-    "Upgrade-Insecure-Requests": "1",
-    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-}
-
 
 def get_bvid_from_url(url: str) -> str:
     result = urlparse(url)
@@ -44,6 +28,9 @@ def get_cid_and_title(bvid: str) -> Tuple[int, str]:
     query_string = urlencode({'bvid': bvid})
     url = urlunparse(('http', 'api.bilibili.com', '/x/web-interface/view', '', query_string, ''))
 
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    }
     response = requests.get(url, headers=headers)
     response.raise_for_status()
     data = response.json()
@@ -64,6 +51,10 @@ def get_audio_url(cid: str, bvid: str) -> str:
         'fourk': '0'  # 4K video flag
     }
 
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    }
+
     # Prepare the URL
     query_string = urlencode(params)
     url = urlunparse(('https', 'api.bilibili.com', '/x/player/playurl', '', query_string, ''))
@@ -78,11 +69,12 @@ def get_audio_url(cid: str, bvid: str) -> str:
 def download_audio(url: str, referer: str, mp3_path: str):
     print(f"Audio url: {url}")
     print(f"Referer: {referer}")
-    _headers = {
-        'Referer': referer
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        'Referer': referer,
     }
-    _headers.update(headers)
-    response = requests.get(url, headers=_headers, stream=True)
+    response = requests.get(url, headers=headers, stream=True)
     response.raise_for_status()
 
     with tempfile.NamedTemporaryFile(suffix='.m4s', delete=False) as tmpfile:
@@ -123,7 +115,8 @@ def sanitize_filename(title: str) -> str:
 @click.command()
 @click.argument('url')
 @click.option('--filename', default=None,
-              help='Name of the output MP3 file. If not provided, the video title will be used as the filename, sanitized to remove invalid characters.')
+              help='Name of the output MP3 file. If not provided, the video title will be used as the filename, '
+                   'sanitized to remove invalid characters.')
 @click.option('--output_dir', default=None,
               help='The output directory where the MP3 file will be saved. Defaults to the current working directory.')
 def download_bilibili_audio(url: str, filename: Optional[str] = None, output_dir: Optional[str] = None) -> None:

@@ -161,5 +161,6 @@ cython_debug/
 
 *.mp3
 *.png
+*.jpg
 *.mp4
 *.pdf
