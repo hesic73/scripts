@@ -3,3 +3,9 @@ requests~=2.31.0
 PyMuPDF~=1.24.0
 opencv-python
 pandas
+fire
+
+
+trimesh
+
+loguru
