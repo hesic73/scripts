@@ -2,7 +2,11 @@ import fitz  # PyMuPDF
 import fire
 import os
 
-def pdf_to_image(pdf_path: str, page_number: int = 0, image_path: str = None):
+from typing import Optional
+from loguru import logger
+
+
+def pdf_to_image(pdf_path: str, page_number: int = 0, image_path: Optional[str] = None):
     """
     Convert a specified page of a PDF to an image.
 
@@ -16,14 +20,16 @@ def pdf_to_image(pdf_path: str, page_number: int = 0, image_path: str = None):
 
     # Ensure the page number is valid
     if page_number < 0 or page_number >= len(pdf_document):
-        print(f"Error: Page number {page_number} is out of range (PDF has {len(pdf_document)} pages).")
+        logger.error(
+            f"Error: Page number {page_number} is out of range (PDF has {len(pdf_document)} pages).")
         return
 
     # Extract the page
     page = pdf_document[page_number]
 
     # Render page as image
-    pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))  # Scale factor for higher resolution
+    # Scale factor for higher resolution
+    pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
 
     # Generate default image path if not provided
     if image_path is None:
@@ -32,8 +38,8 @@ def pdf_to_image(pdf_path: str, page_number: int = 0, image_path: str = None):
 
     # Save the image
     pix.save(image_path)
-    print(f"Saved PDF page {page_number + 1} as image: {image_path}")
+    logger.info(f"Saved PDF page {page_number + 1} as image: {image_path}")
+
 
 if __name__ == "__main__":
     fire.Fire(pdf_to_image)
-

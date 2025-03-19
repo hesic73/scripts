@@ -4,15 +4,23 @@ Adapted from: https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/
 
 import sys
 import os
-import click
+import fire
 import fitz
 
 
-@click.command()
-@click.argument('input_file')
-@click.option('--output-dir', default='.',
-              help='Directory to save the output PDF file. Defaults to the current working directory.')
-def convert(input_file, output_dir):
+from typing import Optional
+from loguru import logger
+
+
+def convert(input_file: str, output_dir: Optional[str] = None):
+
+    # output_dir defaults to the current directory if not provided
+    if output_dir is None:
+        output_dir = os.getcwd()
+    else:
+        assert os.path.isdir(
+            output_dir), f"Output directory {output_dir} does not exist."
+
     try:
         doc = fitz.open(input_file)
 
@@ -23,7 +31,7 @@ def convert(input_file, output_dir):
         base_name = os.path.splitext(os.path.basename(input_file))[0]
         output_file = os.path.join(output_dir, f"{base_name}.pdf")
 
-        print(f"Converting '{input_file}' to '{output_file}'")
+        logger.info(f"Converting '{input_file}' to '{output_file}'")
         pdf_bytes = doc.convert_to_pdf()
         pdf = fitz.open("pdf", pdf_bytes)
 
@@ -45,10 +53,10 @@ def convert(input_file, output_dir):
         link_count, link_skipped = process_links(doc, pdf)
 
         pdf.save(output_file, garbage=4, deflate=True)
-        print(f"Conversion completed. Skipped {link_skipped} named links out of {link_count} in input.")
+        logger.info(
+            f"Conversion completed. Skipped {link_skipped} named links out of {link_count} in input.")
     except Exception as e:
-        print(f"Error: {str(e)}")
-        sys.exit(1)
+        logger.error(f"Error converting {input_file}: {e}")
 
 
 def process_links(doc, pdf):
@@ -67,4 +75,4 @@ def process_links(doc, pdf):
 
 
 if __name__ == "__main__":
-    convert()
+    fire.Fire(convert)

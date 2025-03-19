@@ -1,6 +1,7 @@
 import os
 from PIL import Image
-import click
+import fire
+from loguru import logger
 
 
 def is_16_9_ratio(image: Image.Image) -> bool:
@@ -20,10 +21,7 @@ def center_crop_16_9(image: Image.Image) -> Image.Image:
     return image
 
 
-@click.command()
-@click.argument('input_dir', type=click.Path(exists=True, file_okay=False))
-@click.option('--output_dir', type=click.Path(file_okay=False), default=os.getcwd(), help='Output directory')
-def crop_or_copy_16_9_images(input_dir, output_dir):
+def crop_or_copy_16_9_images(input_dir: str, output_dir: str = os.getcwd()):
     """Process images in the input directory, copying or cropping to 16:9 ratio as needed."""
     os.makedirs(output_dir, exist_ok=True)
 
@@ -36,13 +34,13 @@ def crop_or_copy_16_9_images(input_dir, output_dir):
             if is_16_9_ratio(img):
                 output_path = os.path.join(output_dir, filename)
                 img.save(output_path)
-                click.echo(f"Copied: {filename}")
+                logger.info(f"Copied: {filename}")
             else:
                 cropped_img = center_crop_16_9(img)
                 output_path = os.path.join(output_dir, filename)
                 cropped_img.save(output_path)
-                click.echo(f"Cropped and saved: {filename}")
+                logger.success(f"Cropped and saved: {filename}")
 
 
 if __name__ == '__main__':
-    crop_or_copy_16_9_images()
+    fire.Fire(crop_or_copy_16_9_images)

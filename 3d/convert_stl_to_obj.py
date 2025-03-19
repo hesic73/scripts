@@ -21,6 +21,9 @@ def convert_stl_to_obj(input_dir: str, output_dir: str):
     # List all files in the input directory
     stl_files = [f for f in os.listdir(input_dir) if f.endswith('.stl')]
 
+    # NOTE (hsc): 我不确定这个transformation是否正确，还是我之前的约定有问题。 2025-03-18
+    logger.warning("我这里apply了一个transformation matrix，不确定是否正确。")
+
     # Transformation matrix to convert STL to OBJ coordinate system
     transform_matrix = np.array([
         [1,  0,  0, 0],  # X remains unchanged
