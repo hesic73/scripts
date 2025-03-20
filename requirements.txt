@@ -5,6 +5,8 @@ pandas
 fire
 
 
+ffmpeg-python
+
 trimesh
 
 loguru
