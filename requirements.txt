@@ -8,3 +8,5 @@ fire
 trimesh
 
 loguru
+
+pyheif # for heic support
