@@ -5,13 +5,13 @@ from PIL import Image
 from loguru import logger
 
 
-def convert_images(input_dir: str, output_dir: str, output_format: str = "png"):
+def convert_images(input_dir: str, output_dir: str, output_format: str = "jpg"):
     """
     Convert all HEIC images in input_dir to PNG or JPG in output_dir.
 
     :param input_dir: Directory containing HEIC images.
     :param output_dir: Directory to save converted images.
-    :param output_format: Output format, "png" or "jpg". Default is "png".
+    :param output_format: Output format, "png" or "jpg". Default is "jpg".
     """
     output_format = output_format.lower()
     if output_format not in ["png", "jpg", "jpeg"]:
@@ -20,8 +20,6 @@ def convert_images(input_dir: str, output_dir: str, output_format: str = "png"):
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
 
-    # Set up logging
-    logger.add("conversion.log", rotation="1 MB", level="INFO")
     logger.info(
         f"Starting conversion: {input_dir} → {output_dir} (Format: {output_format})")
 
@@ -52,7 +50,7 @@ def convert_images(input_dir: str, output_dir: str, output_format: str = "png"):
                 else:
                     image.save(output_path, "PNG")
 
-                logger.info(f"Converted: {input_path} → {output_path}")
+                logger.info(f"Converted: {input_path} to {output_path}")
 
             except Exception as e:
                 logger.error(f"Failed to convert {input_path}: {e}")
