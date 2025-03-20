@@ -10,3 +10,5 @@ ffmpeg-python
 trimesh
 
 loguru
+
+pyheif # for heic support
