@@ -13,3 +13,5 @@ trimesh
 loguru
 
 pyheif # for heic support
+
+matplotlib

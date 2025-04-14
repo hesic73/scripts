@@ -48,3 +48,8 @@ sudo apt install ffmpeg
 | crop_video.py                   | Crop a video to a specific aspect ratio.        |
 | extract_audio_from_mp4.py       | Extract audio from an MP4 file.                 |
 
+## Visualization Scripts
+| Script Name              | Description                              |
+|--------------------------|------------------------------------------|
+| visualize_exp_decay.py  | Visualize exponential decay processes.   |
+
