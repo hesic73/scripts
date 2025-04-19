@@ -22,6 +22,7 @@ sudo apt install ffmpeg
 ## Miscellaneous Scripts
 | Script Name                     | Description                                      |
 |---------------------------------|--------------------------------------------------|
+| compress_directory.py           | Compress a directory into a .tar.gz file.       |
 | delete_empty_dirs.py            | Delete all empty directories under a given path.|
 | find_cuda_dependencies.py       | Find libraries with CUDA dependencies.           |
 | list_filenames_without_suffix.py| List filenames in a directory without extensions.|
