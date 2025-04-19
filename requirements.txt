@@ -15,3 +15,5 @@ loguru
 pyheif # for heic support
 
 matplotlib
+
+chardet

@@ -27,6 +27,7 @@ sudo apt install ffmpeg
 | find_cuda_dependencies.py       | Find libraries with CUDA dependencies.           |
 | list_filenames_without_suffix.py| List filenames in a directory without extensions.|
 | sort_csv_by_column.py           | Sort a CSV file by a specified column.           |
+| convert_encoding.py             | Detect and convert file encoding to a target format.|
 
 ## PDF Scripts
 | Script Name                     | Description                                      |
