@@ -12,6 +12,11 @@ sudo apt install ffmpeg
 |------------------------|------------------------------------------|
 | convert_stl_to_obj.py | Convert STL files to OBJ format.         |
 
+## Audio Scripts
+| Script Name              | Description                              |
+|--------------------------|------------------------------------------|
+| amplify_mp3.py          | Amplify or attenuate the volume of an MP3 file. |
+
 ## Image Scripts
 | Script Name                     | Description                                      |
 |---------------------------------|--------------------------------------------------|
