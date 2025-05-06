@@ -55,6 +55,7 @@ sudo apt install ffmpeg
 | create_video_from_images.py     | Create a video from a sequence of images.       |
 | crop_video.py                   | Crop a video to a specific aspect ratio.        |
 | extract_audio_from_mp4.py       | Extract audio from an MP4 file.                 |
+| change_video_speed.py           | Change video playback speed and overlay the speed factor. |
 
 ## Visualization Scripts
 | Script Name              | Description                              |
