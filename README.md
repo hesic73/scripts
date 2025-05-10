@@ -33,6 +33,7 @@ sudo apt install ffmpeg
 | list_filenames_without_suffix.py| List filenames in a directory without extensions.|
 | sort_csv_by_column.py           | Sort a CSV file by a specified column.           |
 | convert_encoding.py             | Detect and convert file encoding to a target format.|
+| qt_deploy.py                    | Bundle a Qt6 application into a self-contained directory.|
 
 ## PDF Scripts
 | Script Name                     | Description                                      |
