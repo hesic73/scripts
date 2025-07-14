@@ -52,6 +52,7 @@ sudo apt install ffmpeg
 ## Video Scripts
 | Script Name                     | Description                                      |
 |---------------------------------|--------------------------------------------------|
+| convert_mov_files.py            | Convert MOV files to MP4 format.             |
 | convert_mov_to_mp4.py           | Convert MOV files to MP4 format.                |
 | create_video_from_images.py     | Create a video from a sequence of images.       |
 | crop_video.py                   | Crop a video to a specific aspect ratio.        |
