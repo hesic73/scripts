@@ -34,6 +34,7 @@ sudo apt install ffmpeg
 | sort_csv_by_column.py           | Sort a CSV file by a specified column.           |
 | convert_encoding.py             | Detect and convert file encoding to a target format.|
 | qt_deploy.py                    | Bundle a Qt6 application into a self-contained directory.|
+| replace_file_suffixes.py           | Replace all file suffixes in a directory with a new suffix.           |
 
 ## PDF Scripts
 | Script Name                     | Description                                      |
