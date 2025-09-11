@@ -3,8 +3,7 @@
 ## Dependencies
 
 ```
-pip install -r requirements.txt
-sudo apt install ffmpeg
+uv sync
 ```
 
 ## 3D Scripts
@@ -60,8 +59,4 @@ sudo apt install ffmpeg
 | extract_audio_from_mp4.py       | Extract audio from an MP4 file.                 |
 | change_video_speed.py           | Change video playback speed and overlay the speed factor. |
 
-## Visualization Scripts
-| Script Name              | Description                              |
-|--------------------------|------------------------------------------|
-| visualize_exp_decay.py  | Visualize exponential decay processes.   |
 
