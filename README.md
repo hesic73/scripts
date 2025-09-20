@@ -6,10 +6,11 @@
 uv sync
 ```
 
-## 3D Scripts
+*## 3D Scripts
 | Script Name            | Description                              |
 |------------------------|------------------------------------------|
-| convert_stl_to_obj.py | Convert STL files to OBJ format.         |
+| stl2obj.py | Convert STL files to OBJ format.         |*
+| glb2obj.py | Convert GLB/GLTF files to OBJ format with textures. |
 
 ## Audio Scripts
 | Script Name              | Description                              |
