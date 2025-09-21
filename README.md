@@ -6,12 +6,13 @@
 uv sync
 ```
 
-*## 3D Scripts
+## 3D Scripts
 | Script Name            | Description                              |
 |------------------------|------------------------------------------|
 | stl2obj.py | Convert STL files to OBJ format.         |
 | glb2obj.py | Convert GLB/GLTF files to OBJ format with textures. |
 | simplify_mesh.py | Simplify mesh files. |
+| batch_simplify_mesh.py | Batch simplify all mesh files in a directory **in-place**. |
 *
 ## Audio Scripts
 | Script Name              | Description                              |
