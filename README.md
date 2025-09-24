@@ -46,6 +46,7 @@ uv sync
 | extract_images_from_pdf.py      | Extract images from a PDF file.                 |
 | extract_pdf_pages.py            | Extract specific pages from a PDF file.         |
 | split_pdf.py                    | Split a PDF into single-page files.             |
+| trim_margins.py                 | Trim white margins from each page of a PDF.     |
 
 ## Spider Scripts
 | Script Name                     | Description                                      |
