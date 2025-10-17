@@ -37,6 +37,7 @@ uv sync
 | convert_encoding.py             | Detect and convert file encoding to a target format.|
 | qt_deploy.py                    | Bundle a Qt6 application into a self-contained directory.|
 | replace_file_suffixes.py           | Replace all file suffixes in a directory with a new suffix.           |
+| txt_to_epub.py                     | Convert Chinese web novel txt files to EPUB format.                   |
 
 ## PDF Scripts
 | Script Name                     | Description                                      |
