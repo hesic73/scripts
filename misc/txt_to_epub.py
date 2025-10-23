@@ -60,13 +60,54 @@ def txt_to_epub(txt_file_path, output_path=None, book_title=None, author=None):
     return output_path
 
 
+def chinese_num_to_arabic(chinese_num):
+    """
+    Convert Chinese numerals to Arabic numerals.
+    Examples: 十二 -> 12, 一百二十三 -> 123, 两百 -> 200
+    """
+    if chinese_num.isdigit():
+        return int(chinese_num)
+    
+    digit_map = {
+        '零': 0, '一': 1, '二': 2, '两': 2, '三': 3, '四': 4,
+        '五': 5, '六': 6, '七': 7, '八': 8, '九': 9
+    }
+    
+    unit_map = {
+        '十': 10,
+        '百': 100,
+        '千': 1000,
+        '万': 10000
+    }
+    
+    result = 0
+    temp_num = 0
+    
+    for i, char in enumerate(chinese_num):
+        if char in digit_map:
+            temp_num = digit_map[char]
+        elif char in unit_map:
+            unit = unit_map[char]
+            if char == '十' and i == 0:
+                temp_num = 1
+            result += temp_num * unit
+            temp_num = 0
+        elif char == '零':
+            continue
+    
+    result += temp_num
+    
+    return result if result > 0 else 0
+
+
 def parse_chapters(content):
     """
     Parse chapters from content based on pattern like:
-    第X章 chapter_title
+    第X章 chapter_title (where X can be Arabic or Chinese numerals)
     """
     logger.debug("Searching for chapter patterns...")
-    chapter_pattern = re.compile(r"^第(\d+)章(.+)$", re.MULTILINE)
+    # Pattern that matches both Arabic (第12章) and Chinese numerals (第十二章)
+    chapter_pattern = re.compile(r"^第(.+?)章(.*)$", re.MULTILINE)
 
     matches = list(chapter_pattern.finditer(content))
 
@@ -78,8 +119,15 @@ def parse_chapters(content):
     chapters = []
 
     for i, match in enumerate(matches):
-        chapter_num = match.group(1)
+        chapter_num_str = match.group(1).strip()
         chapter_title = match.group(2).strip()
+
+        # Convert chapter number (handles both Arabic and Chinese numerals)
+        try:
+            chapter_num = chinese_num_to_arabic(chapter_num_str)
+        except Exception as e:
+            logger.warning(f"Could not parse chapter number: {chapter_num_str}, using index. Error: {e}")
+            chapter_num = i + 1
 
         start_pos = match.end()
 
@@ -96,7 +144,7 @@ def parse_chapters(content):
 
         chapters.append(
             {
-                "number": int(chapter_num),
+                "number": chapter_num,
                 "title": chapter_title,
                 "content": chapter_content,
             }
@@ -123,7 +171,6 @@ def create_epub(book_title, chapters, author="Unknown Author"):
 
     logger.debug("Creating EPUB chapters...")
     for chapter in chapters:
-        chapter_id = f"chapter_{chapter['number']}"
         chapter_file = f"chap_{chapter['number']}.xhtml"
 
         chapter_html = f"""
