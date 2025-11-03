@@ -13,7 +13,7 @@ uv sync
 | glb2obj.py | Convert GLB/GLTF files to OBJ format with textures. |
 | simplify_mesh.py | Simplify mesh files. |
 | batch_simplify_mesh.py | Batch simplify all mesh files in a directory **in-place**. |
-*
+| batch_simplify_mesh_pymeshlab.py | Batch simplify mesh files using PyMeshLab **in-place**. Preserves textures for GLB/GLTF files (unlike trimesh's simplification). |
 ## Audio Scripts
 | Script Name              | Description                              |
 |--------------------------|------------------------------------------|

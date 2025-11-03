@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.12"
 
 [[package]]
@@ -282,6 +282,25 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/95/2a/0e7c1bdb83211043085f11c630ad7d7839dae56fd043188b59df7c1d0f69/ebooklib-0.19.tar.gz", hash = "sha256:07e9b4db0a30c73623b14e23b315634a450d2c13f23d1dba4b457a6ca16a58be", size = 116311, upload-time = "2025-05-02T13:17:58.607Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/66/59/e63fd0b3410d2ab7a8971b070f40390f1fbeb3c7a85849718c8480313cbf/ebooklib-0.19-py3-none-any.whl", hash = "sha256:a790e280e1d5ef105e350e34cc88b83c9c987fa6bab8a63a7543410c313cfa31", size = 39214, upload-time = "2025-05-02T13:17:57.332Z" },
+]
+
+[[package]]
+name = "fast-simplification"
+version = "0.1.12"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4e/9b/f619733063571797481dbfd3c568598552671d41ea8e17bddbfbd1ad9a22/fast_simplification-0.1.12.tar.gz", hash = "sha256:68d45ca9fe62d0dfedc3d2942a25fc5ee73ebafa35105d48a3ac770224e4b4cd", size = 26419, upload-time = "2025-08-05T15:29:09.371Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c3/f2/b2e6bb354180193cc8fd4e047f95daed6a2483c951dcd321684a0d3d4d3c/fast_simplification-0.1.12-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:5cc5606c9f50537ac3a3cc87b2cb874dd597525e1eacc067eaca8e101b6a659f", size = 253004, upload-time = "2025-08-05T15:28:40.695Z" },
+    { url = "https://files.pythonhosted.org/packages/3e/f1/e97a477a186fce26662f1eb544bf5dcdf5129571add82e0309ff80930fe1/fast_simplification-0.1.12-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:84d88e8f08ba5ae974f3f70c8120ccea2388dc29b5c33fbdaf5a186bff910d8a", size = 228771, upload-time = "2025-08-05T15:28:42.497Z" },
+    { url = "https://files.pythonhosted.org/packages/74/62/e17e671b3f329b77d0d935382755ed3e9423d5c98a4dcddd1e0cf3bcc321/fast_simplification-0.1.12-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6b286c79fc7980a44d9e7ac0a62af6cd9867ae30a4a3eaa3040faae119212d35", size = 1745421, upload-time = "2025-08-05T15:28:43.98Z" },
+    { url = "https://files.pythonhosted.org/packages/0c/0b/b430524de00a71fae3d3a746b3396e36655d545b97c26e43b0506637815e/fast_simplification-0.1.12-cp312-cp312-win_amd64.whl", hash = "sha256:c01b9a4e2a1a736fa05d8d4a36f7f46cd3f3a60a0e6fd472be28e72df094c3c7", size = 202343, upload-time = "2025-08-05T15:28:45.389Z" },
+    { url = "https://files.pythonhosted.org/packages/34/88/622447d1863e594f9c02c4e23d55571a0b9c8897e46c5ef3963e8eaf1cfe/fast_simplification-0.1.12-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:a75ca6920656a764b788a9dd8d42f75b983a42ad0cbf0925999bc9eb67936376", size = 249361, upload-time = "2025-08-05T15:28:48.173Z" },
+    { url = "https://files.pythonhosted.org/packages/45/7e/84c2695440cbd2f3d8a547f98f2aef00aad7eb34bc165e7447e807f6b561/fast_simplification-0.1.12-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:b49c8550b64f2e6847c6a158652934118d0af2b43a9af08053fc5602fb17f570", size = 225623, upload-time = "2025-08-05T15:28:50.312Z" },
+    { url = "https://files.pythonhosted.org/packages/57/95/ba2a3044a5a466e53d3c398091f820a06c7a322936f0b7d2ddae7e361e02/fast_simplification-0.1.12-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:65792732248618f2b3de2d75c6a126c7be59bcbdd5f3b5fabd6c88e3ff29829d", size = 1734179, upload-time = "2025-08-05T15:28:55.172Z" },
+    { url = "https://files.pythonhosted.org/packages/0c/3c/1b02bec5dc1a6d087774fae7e38876168b5a4948ebc3c742be12d51034ee/fast_simplification-0.1.12-cp313-cp313-win_amd64.whl", hash = "sha256:c8933f03b6c8addef365fef601ba10dd825cba9308869e693b8c8682eadd3419", size = 202006, upload-time = "2025-08-05T15:28:57.639Z" },
 ]
 
 [[package]]
@@ -1001,6 +1020,26 @@ wheels = [
 ]
 
 [[package]]
+name = "pymeshlab"
+version = "2025.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c5/34/4e55476f1494772e6c397204f5d48eeaeceb3ca9b774697566a568777acf/pymeshlab-2025.7-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:e989545ebbbe948da8497a389867ff58af7f9273d1731024b647ee85f9be36a7", size = 73839769, upload-time = "2025-07-22T12:33:52.234Z" },
+    { url = "https://files.pythonhosted.org/packages/ea/ce/40e6cf11a4a11e3f899584b6e78c63bb6b3f4faea9fcb21b0d9667f389d5/pymeshlab-2025.7-cp312-cp312-macosx_11_0_x86_64.whl", hash = "sha256:ca1b0dead7de4cfa50e6466b7456b5f60da79bd1d611fdd74c489703d9f2db48", size = 54869524, upload-time = "2025-07-22T12:34:01.563Z" },
+    { url = "https://files.pythonhosted.org/packages/37/66/a29eb9d54595144a9b059c45ace63c44296195b9897f5030050a38167fad/pymeshlab-2025.7-cp312-cp312-manylinux_2_35_aarch64.whl", hash = "sha256:7a107e07d7f0c2cd061a405d14d5a817dccbd4eb03b3313fe585c03cc9cec01f", size = 65248869, upload-time = "2025-07-22T12:34:12.3Z" },
+    { url = "https://files.pythonhosted.org/packages/fe/62/b973a67eb48ba76cc33b249fdb8627c250d29600134dfab7137bca87dee4/pymeshlab-2025.7-cp312-cp312-manylinux_2_35_x86_64.whl", hash = "sha256:5444bc01e6091e358468ce8d886143d5340b6c49e852748e9606b72c822b4988", size = 106475642, upload-time = "2025-09-09T07:20:02.911Z" },
+    { url = "https://files.pythonhosted.org/packages/b7/70/afea7f74043ddc081d8f5f4120565f4e94c725bb0567023680c3182c2797/pymeshlab-2025.7-cp312-cp312-win_amd64.whl", hash = "sha256:ddaea3f02d5870d4b7039a87eb7b823a3a4c8bdc359a719298b081b103343c53", size = 55152452, upload-time = "2025-07-22T12:34:21.761Z" },
+    { url = "https://files.pythonhosted.org/packages/fb/9a/db7cf61785c0519db8465f14ca9931c4cc9c5f77afc75c45a2600af49943/pymeshlab-2025.7-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:ecca34167cf578c55505ef7ed0c9c84ebe2625e5ae73553750f6b073f2e7aae4", size = 73840460, upload-time = "2025-07-22T12:34:32.47Z" },
+    { url = "https://files.pythonhosted.org/packages/82/18/1636ee1c14ad6ae1b41616c87db010a5d77820c18318d28d74d2b294cdcf/pymeshlab-2025.7-cp313-cp313-macosx_11_0_x86_64.whl", hash = "sha256:58a4883ef32de729b0bc56234b54acbc3ab214f5ae01ce543ca8244163b52cdc", size = 54869433, upload-time = "2025-07-22T12:34:42.479Z" },
+    { url = "https://files.pythonhosted.org/packages/5e/e8/902ffa5f936f4d52dcaa22a946500b652be31adba79fefcb5eaad63041f5/pymeshlab-2025.7-cp313-cp313-manylinux_2_35_aarch64.whl", hash = "sha256:1b5c8fdc17454fc660b5b4d269342413c51a628b7af4f432137a625eaadea983", size = 65146711, upload-time = "2025-07-22T12:34:54.5Z" },
+    { url = "https://files.pythonhosted.org/packages/0d/64/9119d37ce4e3b40bb745e11313cf80717f42b1164c441ef8b1f5f9ea5a26/pymeshlab-2025.7-cp313-cp313-manylinux_2_35_x86_64.whl", hash = "sha256:8ae33f9162c77678cb6d7a608fa9f08ae3227813757b6131169eb414cb19d4ea", size = 106347180, upload-time = "2025-09-09T07:20:16.644Z" },
+    { url = "https://files.pythonhosted.org/packages/83/1b/32ad9c46245510d4271dbc4b56250559fe7773461f4bca87b1844ecf2a27/pymeshlab-2025.7-cp313-cp313-win_amd64.whl", hash = "sha256:9f24d181343b48174d221b5329b187f1425f481130c7f56fa542b2da54087cae", size = 55152437, upload-time = "2025-07-22T12:39:50.795Z" },
+]
+
+[[package]]
 name = "pymupdf"
 version = "1.26.4"
 source = { registry = "https://pypi.org/simple" }
@@ -1320,6 +1359,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "chardet" },
     { name = "ebooklib" },
+    { name = "fast-simplification" },
     { name = "ffmpeg-python" },
     { name = "fire" },
     { name = "loguru" },
@@ -1327,6 +1367,7 @@ dependencies = [
     { name = "opencv-python" },
     { name = "pandas" },
     { name = "pillow" },
+    { name = "pymeshlab" },
     { name = "pymupdf" },
     { name = "requests" },
     { name = "tqdm" },
@@ -1342,6 +1383,7 @@ heif = [
 requires-dist = [
     { name = "chardet", specifier = ">=5.2.0" },
     { name = "ebooklib", specifier = ">=0.19" },
+    { name = "fast-simplification", specifier = ">=0.1.12" },
     { name = "ffmpeg-python", specifier = ">=0.2.0" },
     { name = "fire", specifier = ">=0.7.1" },
     { name = "loguru", specifier = ">=0.7.3" },
@@ -1350,6 +1392,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.3.2" },
     { name = "pillow", specifier = ">=11.3.0" },
     { name = "pyheif", marker = "extra == 'heif'", specifier = ">=0.8.0" },
+    { name = "pymeshlab", specifier = ">=2025.7" },
     { name = "pymupdf", specifier = ">=1.26.4" },
     { name = "requests", specifier = ">=2.32.5" },
     { name = "tqdm", specifier = ">=4.67.1" },
